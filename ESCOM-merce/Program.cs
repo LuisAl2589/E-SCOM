@@ -1,7 +1,13 @@
+using ESCOM_merce.Models;
+using ESCOM_merce.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.Configure<BaseSettings>(
+    builder.Configuration.GetSection("BaseSettings"));
+builder.Services.AddSingleton<UsuariosApi>();
 
 var app = builder.Build();
 
