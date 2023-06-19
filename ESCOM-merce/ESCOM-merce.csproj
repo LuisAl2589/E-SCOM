@@ -7,4 +7,8 @@
     <RootNamespace>ESCOM_merce</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
+  </ItemGroup>
+
 </Project>
