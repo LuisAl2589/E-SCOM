@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Explorar Imagen con Zoom</title>
+  <style>
+    #zoomed-img {
+      position: absolute;
+      display: none;
+      z-index: 9999;
+    }
+  </style>
+  <script>
+    function zoomImage() {
+      var img = document.getElementById('zoomed-img');
+      img.style.display = 'block';
+    }
+
+    function unzoomImage() {
+      var img = document.getElementById('zoomed-img');
+      img.style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+  <h1>Explorar Imagen con Zoom</h1>
+  <img src="../img/escom-mapa.png" alt="Mi imagen" onclick="zoomImage()">
+  <img src="../img/escom-mapa.png" alt="Imagen Ampliada" id="zoomed-img" onclick="unzoomImage()">
+</body>
+</html>
