@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap-5.3.0-alpha3-dist/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="../css/index.css">
+    
+    
+    
+    <title>Inicio</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="../html/Index.html">Proyecto_Nombre</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menú</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                
+                <form class="d-flex mt-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-info" type="submit">Buscar</button>
+                  </form>
+
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="../html/Index.html">Pagina Principal</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorias
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="../html/Alimentos.html ">Alimentos</a></li>
+                        <li><a class="dropdown-item" href="../html/Productos.html">Productos</a></li>
+                        <li><a class="dropdown-item" href="../html/Servicios.html">Servicios</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Iniciar sesion</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <section>     
+        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+        
+            <div class="carousel-inner">
+              <div class="carousel-item active c-item">
+                <img src="../img/escom-1.jpeg" class="d-block w-100 c-img" alt="Slide 1">
+                <div class="carousel-caption ">
+                  <h2 class=" m-1 text-capitalize">Mejor Calificados</h2>
+                  <p class="mt-5 fs-3 text-uppercase">Consulta los productos con mejor calificación</p>
+                  <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Ver mas</button>
+                </div>
+              </div>
+              <div class="carousel-item c-item">
+                <img src="../img/gomitas.jpg" class="d-block w-100 c-img" alt="Slide 2">
+                <div class="m-1 carousel-caption ">
+                    <h2 class="fw-bolder text-capitalize">Más Vendidos</h2>
+                    <p class="mt-5 fs-3 text-uppercase">Consulta los productos más vendidos</p>
+                    <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Ver mas</button>
+                </div>
+              </div>
+              <div class="carousel-item c-item">
+                <img src="../img/stickers.jpg" class="d-block w-100 c-img" alt="Slide 3">
+                <div class=" m-1 carousel-caption ">
+                    <h2 class="fw-bolder text-capitalize">Recien añadidos</h2>
+                    <p class="mt-5 fs-3 text-uppercase">Consulta los articulos de novedad</p>
+                    <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Ver mas</button>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>    
+
+
+    <main>
+      <section class="CarPr">
+        <div class=" bg-dark text-info text-center p-1">
+          <h3>Categoria <a href="../html/Alimentos.html" class="categorialk text-secondary"> Alimentos</a></h3>
+        </div>
+        <div id="CarouselAl" class="carousel slide bg-dark-subtle" data-ride="carousel">
+          <div class="carousel-inner ">
+            <div class="carousel-item active">
+              <div class="row p-3">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Alimentos/chamoy.jpg" alt="Imagen 1">
+                    <div class="card-body">
+                      <h5 class="card-title">Chamoyada</h5>
+                      <p class="card-text" id="User_Name">Nombre de Usuario</p>  
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group mx-auto">
+                          <button type="button" class="btn btn-sm btn-outline-secondary" 
+                          data-bs-toggle="modal" data-bs-target="#ModalP1CA">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Alimentos/congeladas.jpg" alt="Imagen 2">
+                    <div class="card-body">
+                      <h5 class="card-title">Congelada</h5>
+                      <p class="card-text" id="User_Name">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group mx-auto">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP2CA">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+                  
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Alimentos/dulces 1.jpg" alt="Imagen 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Dulces</h5>
+                      <p class="card-text" id="User_Name">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group mx-auto">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP3CA">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Alimentos/fresas.jpg" alt="Imagen 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Fresas con crema </h5>
+                      <p class="card-text" id="User_Name">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group mx-auto">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP4CA">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row p-3">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Alimentos/gomitas.jpg" alt="Imagen 4">
+                    <div class="card-body">
+                      <h5 class="card-title">Gomitas</h5>
+                      <p class="card-text" id="User_Name">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group mx-auto">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP5CA">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Alimentos/lasagna.jpg" alt="Imagen 5">
+                    <div class="card-body">
+                      <h5 class="card-title">Lasagna</h5>
+                      <p class="card-text" id="User_Name">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group mx-auto">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP6CA">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Alimentos/papas.jpg" alt="Imagen 6">
+                    <div class="card-body">
+                      <h5 class="card-title">Papas</h5>
+                      <p class="card-text" id="User_Name">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group mx-auto">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP7CA">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Alimentos/papas1.jpg" alt="Imagen 6">
+                    <div class="card-body">
+                      <h5 class="card-title">Papas</h5>
+                      <p class="card-text" id="User_Name">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP8CA">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agrega más elementos div con la clase carousel-item para más slides -->
+          </div>  
+            <a class="carousel-control-next" href="#CarouselAl" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+      </section>
+      
+      <section class="CarPr">
+        <div class=" bg-dark text-info text-center p-1">
+          <h3>Categoria <a href="../html/Productos.html" class="categorialk text-secondary">Productos</a></h3>
+        </div>
+        <div id="CarouselPro" class="carousel slide bg-dark-subtle" data-ride="carousel">
+          <div class="carousel-inner ">
+            <div class="carousel-item active">
+              <div class="row p-3">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Productos/Control.jpg" alt="Imagen 1">
+                    <div class="card-body">
+                      <h5 class="card-title">Control</h5>
+                      <p class="card-text">Nombre de Usuario</p>  
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group ">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP1CP">Ver Post</button>                        
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Productos/jabon.jpg" alt="Imagen 2">
+                    <div class="card-body">
+                      <h5 class="card-title">Jabon</h5>
+                      <p class="card-text">Nombre de usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP2CP">Ver Post</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Productos/jabon2.jpg" alt="Imagen 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Jabon</h5>
+                      <p class="card-text">Nombre de usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP3CP">Ver Post</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Productos/llavero.jpg" alt="Imagen 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Llavero</h5>
+                      <p class="card-text">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP4CP">Ver Post</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row p-3">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Productos/llavero2.jpg" alt="Imagen 4">
+                    <div class="card-body">
+                      <h5 class="card-title">Llavero</h5>
+                      <p class="card-text">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP5CP">Ver Post</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Productos/ropa 2.jpg" alt="Imagen 5">
+                    <div class="card-body">
+                      <h5 class="card-title">Ropa</h5>
+                      <p class="card-text">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP6CP">Ver Post</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Productos/ropa.jpg" alt="Imagen 6">
+                    <div class="card-body">
+                      <h5 class="card-title">Ropa</h5>
+                      <p class="card-text">Nombre de usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP7CP">Ver Post</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Productos/Productos/ssd.jpg" alt="Imagen 6">
+                    <div class="card-body">
+                      <h5 class="card-title">Disco Duro SSD</h5>
+                      <p class="card-text">Nombre de Usuario</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal" data-bs-target="#ModalP8CP">Ver Post</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agrega más elementos div con la clase carousel-item para más slides -->
+          </div>  
+            <a class="carousel-control-next" href="#CarouselPro" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+      </section>  
+
+      <section class="CarPr">
+        <div class=" bg-dark text-info text-center p-1">
+          <h3>Categoria <a href="../html/Servicios.html" class="categorialk text-secondary"> Servicios</a></h3>
+        </div>
+        <div id="CarouselSer" class="carousel slide bg-dark-subtle" data-ride="carousel">
+          <div class="carousel-inner ">
+            <div class="carousel-item active">
+              <div class="row p-3">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Rider (1).jpg" alt="Imagen 1">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto 1</h5>
+                      <p class="card-text">Descripcion del articulo</p>  
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Post</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contactar</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Rider (1).jpg" alt="Imagen 2">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto 2</h5>
+                      <p class="card-text">Descripcion del articulo</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Post</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contactar</button>
+                        </div>
+                        <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Rider (1).jpg" alt="Imagen 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto 3</h5>
+                      <p class="card-text">Descripcion del articulo</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Post</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contactar</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Rider (1).jpg" alt="Imagen 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto 4</h5>
+                      <p class="card-text">Descripcion del articulo</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Post</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contactar</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row p-3">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Rider (1).jpg" alt="Imagen 4">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto 5</h5>
+                      <p class="card-text">Descripcion del articulo</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Post</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contactar</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card">
+                    <img class="card-img-top" src="../img/Rider (1).jpg" alt="Imagen 5">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto 6</h5>
+                      <p class="card-text">Descripcion del articulo</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Post</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contactar</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Rider (1).jpg" alt="Imagen 6">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto 7</h5>
+                      <p class="card-text">Descripcion del articulo</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Post</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contactar</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card">
+                    <img class="card-img-top" src="../img/Rider (1).jpg" alt="Imagen 6">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto 8</h5>
+                      <p class="card-text">Descripcion del articulo</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Post</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contactar</button>
+                        </div>
+                      <small class="text-body-secondary">Actualizacion del Post</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agrega más elementos div con la clase carousel-item para más slides -->
+          </div>   
+            <a class="carousel-control-next" href="#CarouselSer" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+      </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+  -->
+
+     
+  <!-- Modal P1CA-->
+  <div class="modal fade" id="ModalP1CA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Chamoyada</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Alimentos/chamoy.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">10 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal P2CA-->
+  <div class="modal fade" id="ModalP2CA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Congeladas</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Alimentos/congeladas.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal P3CA-->
+  <div class="modal fade" id="ModalP3CA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Dulces</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Alimentos/dulces 1.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal P4CA-->
+  <div class="modal fade" id="ModalP4CA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Fresas con crema</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Alimentos/fresas.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal P5CA-->
+  <div class="modal fade" id="ModalP5CA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Gomitas</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Alimentos/gomitas.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal P6CA-->
+  <div class="modal fade" id="ModalP6CA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Lasagna</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Alimentos/lasagna.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal P7CA-->
+  <div class="modal fade" id="ModalP7CA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Papas</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Alimentos/papas.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal P8CA-->
+  <div class="modal fade" id="ModalP8CA" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Papas</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Alimentos/papas1.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- 
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+    ****************************************************************************************************************
+  -->
+
+  
+  <!-- Modal P1CP-->
+  <div class="modal fade" id="ModalP1CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Control</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Productos/Control.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal P2CP-->
+  <div class="modal fade" id="ModalP2CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Jabon</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Productos/jabon.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal P3CP-->
+  <div class="modal fade" id="ModalP3CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Jabon</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Productos/jabon2.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal P4CP-->
+  <div class="modal fade" id="ModalP4CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Llavero</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Productos/llavero.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal P5CP-->
+  <div class="modal fade" id="ModalP5CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Llavero</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Productos/llavero2.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal P6CP-->
+  <div class="modal fade" id="ModalP6CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Ropa</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Productos/ropa 2.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal P7CP-->
+  <div class="modal fade" id="ModalP3CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Ropa</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Productos/ropa.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal P8CP-->
+  <div class="modal fade" id="ModalP3CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Disco Duro SSD</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">        
+                    <img src="../img/Productos/Productos/ssd.jpg" class="card-img " alt="Cinque Terre">
+                    </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores 
+                    debitis tenetur iste facere corrupti. 
+                    Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora, 
+                    possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus 
+                    id velit officia?
+                    </p>
+                    <hr>
+                    <h5 id="User_Name">Nombre de usuario</h5>
+                    <p id="User_Phone">+52-55-0000-0000</p>
+                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
+                </div>
+            </div>
+  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+    
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+  <script src="../css/bootstrap-5.3.0-alpha3-dist/bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
