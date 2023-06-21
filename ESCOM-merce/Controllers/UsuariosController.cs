@@ -20,6 +20,26 @@ namespace ESCOM_merce.Controllers
         {
             return _usuarioApi.Get();
         }
+
+        [HttpGet("{id:length(24)}")]
+        public async Task<ActionResult<Usuario>> GetId(string id)
+        {
+            var usuario= await _usuarioApi.GetId(id);
+            if(usuario == null)
+            {
+                return NotFound();
+            }
+
+            return usuario;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(Usuario newUsuario)
+        {
+            await _usuarioApi.Create(newUsuario);
+
+            return CreatedAtAction(nameof(Get), new { id = newUsuario.Id }, newUsuario);
+        }
     }
     
 }
