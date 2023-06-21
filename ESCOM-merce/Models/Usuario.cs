@@ -6,7 +6,7 @@ namespace ESCOM_merce.Models
     {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public string Id { get; set; }
+        public string ?Id { get; set; }
         [BsonElement("nombre")]
         public string Nombre { get; set; }
         [BsonElement("primerApellido")]
@@ -24,10 +24,6 @@ namespace ESCOM_merce.Models
         [BsonElement("tipoUsuario")]
 
         public string TipoUsuario { get; set; }
-
-
-
-
 
 
     }

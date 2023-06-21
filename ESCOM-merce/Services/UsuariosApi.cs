@@ -23,5 +23,25 @@ namespace ESCOM_merce.Services {
     {
         return _usuariosCollection.Find(d => true).ToList();
     }
+
+        public Task <Usuario> GetId(string id)
+        {
+            return _usuariosCollection.Find(d => d.Id==id).FirstOrDefaultAsync();
+        }
+        public Task Create(Usuario usuario)
+        {
+          return  _usuariosCollection.InsertOneAsync(usuario);
+
+        }
+
+        public Task Update(string id,Usuario usuario)
+        {
+            return _usuariosCollection.ReplaceOneAsync(d => d.Id == id,usuario);
+        }
+
+        public Task Delete(string id)
+        {
+           return _usuariosCollection.DeleteOneAsync(d => d.Id==id);
+        }
 }
 }
