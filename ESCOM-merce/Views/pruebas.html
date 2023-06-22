@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../css/bootstrap-5.3.0-alpha3-dist/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="../css/index.css"> 
+  <title>Prueba almacen</title>
+</head>
+<body>
+  <main>
+    <div class="container text-info text-center">
+      <h2>Productos publicados</h2>
+    </div>
+
+
+    
+  </main>
+
+  <table class="table col-3 container text-center">     
+    <thead>
+      <tr>
+        <th scope="col" class="col-sm-1">Num.Post</th>
+        <th scope="col" class="col-sm-2">Nombre</th>
+        <th scope="col" class="col-sm-9">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        <th >1</th>
+        <td >papas</td>
+        <td class="btn-group justify-content-between align-items-center">
+          <button type="button" class="btn mx-2 btn-outline-success " id="ver">Ver</button>
+          <button type="button" class="btn btn-primary" id="edit">Editar</button>
+          <button type="button" class="btn btn-danger" id="borra">Borrar</button>
+          <div class="container d-flex justify-content-center text-bg-dark">
+            <label class="text-danger mt-1">Inactivo</label>
+            <input type="range" class="form-control-color " id="slider" min="0" max="1" step="1" value="0">
+            <label class="text-success mt-1">Activo</label>
+          </div> 
+        </td>
+      </tr>
+      <tr>
+        <th >1</th>
+        <td >papas</td>
+        <td class="btn-group justify-content-between align-items-center">
+          <button type="button" class="btn mx-2 btn-outline-success " id="ver">Ver</button>
+          <button type="button" class="btn btn-primary" id="edit">Editar</button>
+          <button type="button" class="btn btn-danger" id="borra">Borrar</button>
+          <div class="container d-flex justify-content-center text-bg-dark">
+            <label class="text-danger mt-1">Inactivo</label>
+            <input type="range" class="form-control-color " id="slider" min="0" max="1" step="1" value="0">
+            <label class="text-success mt-1">Activo</label>
+          </div> 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <script>
+    $(document).ready(function() {
+      $('#slider').on('input', function() {
+        if ($(this).val() === '1') {
+          // Estado activado
+          console.log('Estado activado');
+          // Aquí puedes realizar las acciones correspondientes cuando el estado está activado
+        } else {
+          // Estado desactivado
+          console.log('Estado desactivado');
+          // Aquí puedes realizar las acciones correspondientes cuando el estado está desactivado
+        }
+      });
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+
+</body>
+</html>
