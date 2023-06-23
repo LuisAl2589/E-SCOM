@@ -53,7 +53,7 @@
                                 </a>
                             </div><!-- End Logo -->
 
-                            <div class="card mb-3">
+                            <div class="card mb-3" style="width: 30rem;">
 
                                 <div class="card-body">
 
@@ -68,17 +68,29 @@
                                             <input type="text" asp-for="Nombre" class="form-control" id="yourName" required>
                                             <div class="invalid-feedback">Please, enter your name!</div>
                                         </div>
+                                        <br />
+
                                         <div class="col-12">
                                             <label for="yourName" class="form-label">Primer Apellido</label>
                                             <input type="text" asp-for="PrimerApellido" class="form-control" id="yourName" required>
                                             <div class="invalid-feedback">Please, enter your name!</div>
                                         </div>
+                                        <br />
+
 
                                         <div class="col-12">
                                             <label for="yourEmail" class="form-label">Correo</label>
                                             <input type="email" asp-for="Correo" class="form-control" id="yourEmail" required>
                                             <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                                         </div>
+                                        <br />
+
+                                        <div class="col-12">
+                                            <label for="yourPassword" class="form-label">Telefono</label>
+                                            <input type="text" asp-for="Telefono" class="form-control" id="yourPassword" required>
+                                            <div class="invalid-feedback">Please enter your password!</div>
+                                        </div>
+                                        <br />
 
                                         <div class="col-12">
                                             <label for="yourUsername" class="form-label">Username</label>
@@ -88,12 +100,15 @@
                                                 <div class="invalid-feedback">Please choose a username.</div>
                                             </div>
                                         </div>
+                                        <br />
+
 
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Contraseña</label>
                                             <input type="password" asp-for="Password" class="form-control" id="yourPassword" required>
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
+                                        <br />
 
                                         <div class="col-12">
                                             <select class="form-select" asp-for="TipoUsuario" aria-label="Tipo de Usuario">
@@ -116,13 +131,6 @@
                                 </div>
                             </div>
 
-                            <div class="credits">
-                                <!-- All the links in the footer should remain intact. -->
-                                <!-- You can delete the links only if you purchased the pro version. -->
-                                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                            </div>
 
                         </div>
                     </div>

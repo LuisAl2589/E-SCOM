@@ -8,9 +8,13 @@ namespace ESCOM_merce.Controllers
     {
 
         public ProductosApi _productoService;
-        public VProductoController(ProductosApi productoApi)
+        public UsuariosApi _usuarioService;
+
+        public VProductoController(ProductosApi productoApi, UsuariosApi usuarioApi)
         {
             _productoService = productoApi;
+            _usuarioService = usuarioApi;
+
         }
 
         [HttpPost]
@@ -34,6 +38,75 @@ namespace ESCOM_merce.Controllers
                 return RedirectToAction("ProductosVendedor", "VVendedor");
             
             
+        }
+        [HttpPost]
+        public IActionResult EditarProducto(Producto _producto)
+        {
+            var producto = _productoService.Update(_producto.Id, _producto);
+            return RedirectToAction("ProductosVendedor", "VVendedor");
+        }
+
+        public IActionResult Alimentos()
+        {
+            var productos = _productoService.Get();
+            var lvpv = new List<VProductoVendedor>();
+            foreach (var item in productos)
+            {
+                if(item.Categoria=="Alimentos")
+                {
+                    var vpv = new VProductoVendedor();
+                    var vendedor = new Usuario();
+                    vendedor = _usuarioService.GetId(item.IdVendedor);
+                    vpv.Producto = item;
+                    vpv.Usuario = vendedor;
+                    lvpv.Add(vpv);
+                }
+            }
+
+            return View(lvpv);
+
+        }
+
+        public IActionResult Productos()
+        {
+
+            var productos = _productoService.Get();
+            var lvpv = new List<VProductoVendedor>();
+            foreach (var item in productos)
+            {
+                if (item.Categoria == "Productos")
+                {
+                    var vpv = new VProductoVendedor();
+                    var vendedor = new Usuario();
+                    vendedor = _usuarioService.GetId(item.IdVendedor);
+                    vpv.Producto = item;
+                    vpv.Usuario = vendedor;
+                    lvpv.Add(vpv);
+                }
+            }
+
+            return View(lvpv);
+        }
+
+        public IActionResult Servicios()
+        {
+
+            var productos = _productoService.Get();
+            var lvpv = new List<VProductoVendedor>();
+            foreach (var item in productos)
+            {
+                if (item.Categoria == "Productos")
+                {
+                    var vpv = new VProductoVendedor();
+                    var vendedor = new Usuario();
+                    vendedor = _usuarioService.GetId(item.IdVendedor);
+                    vpv.Producto = item;
+                    vpv.Usuario = vendedor;
+                    lvpv.Add(vpv);
+                }
+            }
+
+            return View(lvpv);
         }
     }
 }

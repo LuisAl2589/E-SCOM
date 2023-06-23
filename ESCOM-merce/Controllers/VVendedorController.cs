@@ -3,6 +3,8 @@ using ESCOM_merce.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace ESCOM_merce.Controllers
 {
@@ -42,11 +44,20 @@ namespace ESCOM_merce.Controllers
 
             return View();
         }
+        [HttpPost]
+        public IActionResult EditarProducto(string _idProducto)
+        {
+            var producto = _productoService.GetId(_idProducto);
 
-        public IActionResult EditarProducto()
+            return View(producto);
+        }
+        [HttpPost]
+        public IActionResult Eliminar(string _idUsuario)
         {
 
-            return View();
+           var vendedor= _usuarioService.Delete(_idUsuario);
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

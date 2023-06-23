@@ -56,7 +56,7 @@
                 </a>
               </div><!-- End Logo -->
 
-              <div class="card mb-3">
+                            <div class="card mb-3" style="width: 25rem;">
 
                 <div class="card-body">
 
@@ -75,12 +75,13 @@
                         <div class="invalid-feedback">Please enter your username.</div>
                       </div>
                     </div>
-
+                    <br />
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Contraseña</label>
                       <input type="password" asp-for="Password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
+                                        <br />
 
                     <!--
                       <div class="col-12">
@@ -93,6 +94,8 @@
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Ingresar</button>
                     </div>
+                                        <br />
+
                     <div class="col-12">
                                             <p class="small mb-0">Aun no tienes una cuenta? <a asp-controller="VUsuario" asp-action="Registro">Registrate</a></p>
                     </div>

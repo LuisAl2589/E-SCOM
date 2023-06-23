@@ -63,6 +63,7 @@
                 <div class="carousel-item active">
                     <div class="row p-3">
                         @foreach(var producto in m1){
+                            if(producto.Producto.Estado){
                             if(producto.Producto.Categoria == "Alimentos"){
                         <div class="col-12 col-md-6 col-lg-3">
                             <div class="card">
@@ -73,7 +74,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                    data-bs-toggle="modal" data-bs-target="#@producto.Producto.Nombre">
+                                                    data-bs-toggle="modal" data-bs-target="#@producto.Producto.Nombre.Trim()">
                                                 Ver Post
                                             </button>
                                         </div>
@@ -83,6 +84,7 @@
                             </div>
                         </div>
                         }
+                            }
                         }
                     </div>
                 </div>
@@ -107,26 +109,29 @@
 
                         @foreach (var producto in m1)
                         {
-                            if (producto.Producto.Categoria == "Productos")
+                            if (producto.Producto.Estado)
                             {
-                                <div class="col-12 col-md-6 col-lg-3">
-                                    <div class="card">
-                                        <img class="card-img-top" src="~/img/Productos/@producto.Producto.Categoria/@producto.Producto.Imagen" alt="Imagen 1">
-                                        <div class="card-body">
-                                            <h5 class="card-title">@producto.Producto.Nombre</h5>
-                                            <p class="card-text" id="User_Name">@producto.Usuario.Nombre</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group mx-auto">
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                            data-bs-toggle="modal" data-bs-target="#@producto.Producto.Nombre">
-                                                        Ver Post
-                                                    </button>
+                                if (producto.Producto.Categoria == "Productos")
+                                {
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <div class="card">
+                                            <img class="card-img-top" src="~/img/Productos/@producto.Producto.Categoria/@producto.Producto.Imagen" alt="Imagen 1">
+                                            <div class="card-body">
+                                                <h5 class="card-title">@producto.Producto.Nombre</h5>
+                                                <p class="card-text" id="User_Name">@producto.Usuario.Nombre</p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="btn-group mx-auto">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                                data-bs-toggle="modal" data-bs-target="#@producto.Producto.Nombre.Trim()">
+                                                            Ver Post
+                                                        </button>
+                                                    </div>
+                                                    <small class="text-body-secondary">Actualizacion del Post</small>
                                                 </div>
-                                                <small class="text-body-secondary">Actualizacion del Post</small>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                }
                             }
                         }
                     </div>
@@ -156,7 +161,9 @@
     var whats = "";
 }
 @foreach(var producto in m2){
-    <div class="modal fade" id="@producto.Producto.Nombre" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    if (producto.Producto.Estado)
+    {
+        <div class="modal fade" id="@producto.Producto.Nombre.Trim()" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -192,7 +199,7 @@
                                 </div>
                                 <div class="col col-sm-6">
                                     <h5>Costo: </h5>$@producto.Producto.Costo
-                                    <h5>Stock: </h5>$@producto.Producto.Stock
+                                    <h5>Stock: </h5>@producto.Producto.Stock
                                 </div>
                             </div>
                     </div>
@@ -211,6 +218,7 @@
     </div>
 </div>
 }
+}
 
 <!--
   ****************************************************************************************************************
@@ -219,284 +227,5 @@
   ****************************************************************************************************************
 -->
 <!-- Modal P1CP-->
-<div class="modal fade" id="ModalP1CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 " id="exampleModalLabel">Control</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-img align-content-center justify-content-center">
-                    <img src="../img/Productos/Productos/Control.jpg" class="card-img " alt="Cinque Terre">
-                </div>
-                <div class="card-body ">
-                    <h4>Detalles del articulo</h4>
-                    <p class="descp">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores
-                        debitis tenetur iste facere corrupti.
-                        Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora,
-                        possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus
-                        id velit officia?
-                    </p>
-                    <hr>
-                    <h5 id="User_Name">Nombre de usuario</h5>
-                    <p id="User_Phone">+52-55-0000-0000</p>
-                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal P2CP-->
-<div class="modal fade" id="ModalP2CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 " id="exampleModalLabel">Jabon</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-img align-content-center justify-content-center">
-                    <img src="../img/Productos/Productos/jabon.jpg" class="card-img " alt="Cinque Terre">
-                </div>
-                <div class="card-body ">
-                    <h4>Detalles del articulo</h4>
-                    <p class="descp">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores
-                        debitis tenetur iste facere corrupti.
-                        Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora,
-                        possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus
-                        id velit officia?
-                    </p>
-                    <hr>
-                    <h5 id="User_Name">Nombre de usuario</h5>
-                    <p id="User_Phone">+52-55-0000-0000</p>
-                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal P3CP-->
-<div class="modal fade" id="ModalP3CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 " id="exampleModalLabel">Jabon</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-img align-content-center justify-content-center">
-                    <img src="../img/Productos/Productos/jabon2.jpg" class="card-img " alt="Cinque Terre">
-                </div>
-                <div class="card-body ">
-                    <h4>Detalles del articulo</h4>
-                    <p class="descp">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores
-                        debitis tenetur iste facere corrupti.
-                        Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora,
-                        possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus
-                        id velit officia?
-                    </p>
-                    <hr>
-                    <h5 id="User_Name">Nombre de usuario</h5>
-                    <p id="User_Phone">+52-55-0000-0000</p>
-                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal P4CP-->
-<div class="modal fade" id="ModalP4CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 " id="exampleModalLabel">Llavero</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-img align-content-center justify-content-center">
-                    <img src="../img/Productos/Productos/llavero.jpg" class="card-img " alt="Cinque Terre">
-                </div>
-                <div class="card-body ">
-                    <h4>Detalles del articulo</h4>
-                    <p class="descp">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores
-                        debitis tenetur iste facere corrupti.
-                        Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora,
-                        possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus
-                        id velit officia?
-                    </p>
-                    <hr>
-                    <h5 id="User_Name">Nombre de usuario</h5>
-                    <p id="User_Phone">+52-55-0000-0000</p>
-                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal P5CP-->
-<div class="modal fade" id="ModalP5CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 " id="exampleModalLabel">Llavero</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-img align-content-center justify-content-center">
-                    <img src="../img/Productos/Productos/llavero2.jpg" class="card-img " alt="Cinque Terre">
-                </div>
-                <div class="card-body ">
-                    <h4>Detalles del articulo</h4>
-                    <p class="descp">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores
-                        debitis tenetur iste facere corrupti.
-                        Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora,
-                        possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus
-                        id velit officia?
-                    </p>
-                    <hr>
-                    <h5 id="User_Name">Nombre de usuario</h5>
-                    <p id="User_Phone">+52-55-0000-0000</p>
-                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal P6CP-->
-<div class="modal fade" id="ModalP6CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 " id="exampleModalLabel">Ropa</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-img align-content-center justify-content-center">
-                    <img src="../img/Productos/Productos/ropa 2.jpg" class="card-img " alt="Cinque Terre">
-                </div>
-                <div class="card-body ">
-                    <h4>Detalles del articulo</h4>
-                    <p class="descp">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores
-                        debitis tenetur iste facere corrupti.
-                        Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora,
-                        possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus
-                        id velit officia?
-                    </p>
-                    <hr>
-                    <h5 id="User_Name">Nombre de usuario</h5>
-                    <p id="User_Phone">+52-55-0000-0000</p>
-                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal P7CP-->
-<div class="modal fade" id="ModalP3CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 " id="exampleModalLabel">Ropa</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-img align-content-center justify-content-center">
-                    <img src="../img/Productos/Productos/ropa.jpg" class="card-img " alt="Cinque Terre">
-                </div>
-                <div class="card-body ">
-                    <h4>Detalles del articulo</h4>
-                    <p class="descp">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores
-                        debitis tenetur iste facere corrupti.
-                        Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora,
-                        possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus
-                        id velit officia?
-                    </p>
-                    <hr>
-                    <h5 id="User_Name">Nombre de usuario</h5>
-                    <p id="User_Phone">+52-55-0000-0000</p>
-                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal P8CP-->
-<div class="modal fade" id="ModalP3CP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 " id="exampleModalLabel">Disco Duro SSD</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-img align-content-center justify-content-center">
-                    <img src="../img/Productos/Productos/ssd.jpg" class="card-img " alt="Cinque Terre">
-                </div>
-                <div class="card-body ">
-                    <h4>Detalles del articulo</h4>
-                    <p class="descp">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, pariatur doloremque quasi dolores
-                        debitis tenetur iste facere corrupti.
-                        Fugit iure illum laudantium beatae deserunt nam eum saepe reiciendis a optio?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus quos repudiandae, tempora,
-                        possimus quae vero magni veritatis iure perferendis omnis vitae alias modi dignissimos, aperiam natus
-                        id velit officia?
-                    </p>
-                    <hr>
-                    <h5 id="User_Name">Nombre de usuario</h5>
-                    <p id="User_Phone">+52-55-0000-0000</p>
-                    <p> Hace <span class="text-secondary" id="Date_Post">20 min</span></p>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 

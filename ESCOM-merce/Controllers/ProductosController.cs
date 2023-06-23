@@ -22,9 +22,9 @@ namespace ESCOM_merce.Controllers
         }
 
         [HttpGet("{id:length(24)}")]
-        public async Task<ActionResult<Producto>> GetId(string id)
+        public  ActionResult<Producto> GetId(string id)
         {
-            var producto = await _productoService.GetId(id);
+            var producto =  _productoService.GetId(id);
             if (producto == null)
             {
                 return NotFound();
@@ -42,9 +42,9 @@ namespace ESCOM_merce.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(string id, Producto productoUpdate)
+        public  IActionResult Update(string id, Producto productoUpdate)
         {
-            var producto = await _productoService.GetId(id);
+            var producto =  _productoService.GetId(id);
 
             if (producto is null)
             {
@@ -52,19 +52,19 @@ namespace ESCOM_merce.Controllers
             }
 
             productoUpdate.Id = producto.Id;
-            await _productoService.Update(id, productoUpdate);
+             _productoService.Update(id, productoUpdate);
 
             return NoContent();
         }
         [HttpDelete]
-        public async Task<IActionResult> Delete(string id)
+        public IActionResult Delete(string id)
         {
-            var producto = await _productoService.GetId(id);
+            var producto =  _productoService.GetId(id);
             if (producto is null)
             {
                 return NotFound();
             }
-            await _productoService.Delete(id);
+             _productoService.Delete(id);
             return NoContent();
         }
     }

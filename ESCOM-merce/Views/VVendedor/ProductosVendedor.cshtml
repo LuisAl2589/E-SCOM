@@ -60,7 +60,11 @@
 
                         <td class="btn-group justify-content-between align-items-center">
                             <button type="button" class="btn mx-2 btn-outline-success " id="ver">Ver</button>
-                            <button type="button" class="btn btn-primary" id="edit">Editar</button>
+                            <form asp-controller="VVendedor" asp-action="EditarProducto" method="post" )">
+                                <input type="hidden" name="_idProducto" value="@producto.Id">
+
+                            <button type="submit" class="btn btn-primary" id="edit">Editar</button>
+                            </form>
                             <form asp-controller="VProducto" asp-action="EliminarProducto" method="post" onsubmit="return confirm('¿Estás seguro?')">
                                 <input type="hidden" name="_idProducto" value="@producto.Id">
                                 <button type="submit" class="btn btn-danger" id="borra">Borrar</button>
@@ -68,16 +72,16 @@
                             
                         </td>
                         <td>
-                            <div class="container d-flex justify-content-center text-bg-dark">
+                            <div class="container d-flex justify-content-center">
                                 <label class="text-danger mt-1">Inactivo</label>
                                 @if (producto.Estado)
                                 {
-                                    <input type="range" class="form-control-color " id="slider" min="0" max="1" step="1" value="1">
+                                    <input type="range" class="form-range" id="slider" min="0" max="1" step="1" value="1" disabled>
                                 }
                                 else
                                 {
 
-                                    <input type="range" class="form-control-color " id="slider" min="0" max="1" step="1" value="0">
+                                    <input type="range" class="form-range" id="slider" min="0" max="1" step="1" value="0" disabled>
 
                                 }
                                 <label class="text-success mt-1">Activo</label>
@@ -90,23 +94,4 @@
     </div>
 </div>
 
-
-
-
-
-<script>
-    $(document).ready(function () {
-        $('#slider').on('input', function () {
-            if ($(this).val() === '1') {
-                // Estado activado
-                console.log('Estado activado');
-                // Aquí puedes realizar las acciones correspondientes cuando el estado está activado
-            } else {
-                // Estado desactivado
-                console.log('Estado desactivado');
-                // Aquí puedes realizar las acciones correspondientes cuando el estado está desactivado
-            }
-        });
-    });
-</script>
 

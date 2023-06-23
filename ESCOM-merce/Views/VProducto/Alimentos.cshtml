@@ -1,0 +1,127 @@
+﻿@using ESCOM_merce.Models;
+
+@{
+    ViewData["Title"] = "Alimentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="pt-5 col-12 container Titular text-center">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto Titular-A-info">
+            <h1 class="text-dark">Alimentos</h1>
+            <p class="lead text-black">Recuerda ser educado con quien prepara tu comida Owo</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2"
+                   data-bs-toggle="modal" data-bs-target="#ModalEscomap">Ver mapa de la escuela</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<main class="bg-dark">
+    <div class="text-light bg-black text-center p-1">
+        <h1>Productos Disponibles</h1>
+    </div>
+    <div class="album py-3">
+        <div class="container cont-d">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                @{
+                    var whats = "";
+                }
+                @foreach(var producto in Model){
+                    if (producto.Producto.Estado)
+                    {
+                        <div class="col">
+                            <div class="card shadow-sm p-2">
+                                <img src="~/img/Productos/@producto.Producto.Categoria/@producto.Producto.Imagen" class="card-img" alt="">
+                        <div class="card-body">
+                                    <h4 id="Prod_Nombre" class="text-info">@producto.Producto.Nombre</h4>
+                            <h4>Descripción</h4>
+                                    <p class="card-text text-justify" id="Prod_Desc">@producto.Producto.Descripcion</p>
+                            <hr>
+                                    @if (true)
+                                    {
+                                        whats = "https://wa.me/521" + producto.Usuario.Telefono;
+                                    }
+                                    <h4>Usuario: <samp class="text-secondary" id="user_name">@producto.Usuario.Nombre</samp> </h4>
+                                    <a aria-label="Chat on WhatsApp" href="@whats">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                                            <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                                        </svg>
+                                        <a />
+                                        <p>@producto.Usuario.Telefono</p>
+                                        <h5>Costo: </h5>$@producto.Producto.Costo
+                                        <h5>Stock: </h5>@producto.Producto.Stock
+                           <!--
+                            <h4>Calificacion: <samp class="text-secondary" id="user_rate">4.0</samp></h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6>Fecha de post</h6>
+                                <small class="text-body-secondary">9 mins</small>
+                            </div>
+                                         -->
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalEscomap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mapa de la escom</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="../img/escom-mapa.png" alt="" class="escomap card-img ">
+                <p>../OwO/..</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalEscomap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mapa de la escom</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="../img/escom-mapa.png" alt="" class="escomap card-img ">
+                <p>../OwO/..</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

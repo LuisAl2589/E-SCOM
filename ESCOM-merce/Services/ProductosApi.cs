@@ -29,9 +29,9 @@ namespace ESCOM_merce.Services
             return _productosCollection.Find(d => d.IdVendedor==idVendedor).ToList();
         }
 
-        public Task<Producto> GetId(string id)
+        public Producto GetId(string id)
         {
-            return _productosCollection.Find(d => d.Id == id).FirstOrDefaultAsync();
+            return _productosCollection.Find(d => d.Id == id).FirstOrDefault();
         }
         public Task Create(Producto producto)
         {
