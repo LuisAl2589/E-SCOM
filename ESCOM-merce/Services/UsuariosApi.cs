@@ -24,9 +24,9 @@ namespace ESCOM_merce.Services {
         return _usuariosCollection.Find(d => true).ToList();
     }
 
-        public Task <Usuario> GetId(string id)
+        public Usuario GetId(string id)
         {
-            return _usuariosCollection.Find(d => d.Id==id).FirstOrDefaultAsync();
+            return _usuariosCollection.Find(d => d.Id==id).FirstOrDefault();
         }
         public Task Create(Usuario usuario)
         {
@@ -43,5 +43,11 @@ namespace ESCOM_merce.Services {
         {
            return _usuariosCollection.DeleteOneAsync(d => d.Id==id);
         }
-}
+
+        public Usuario? ValidarUsuario(string _correo, string _password)
+        {
+
+            return _usuariosCollection.Find(d => d.Correo == _correo && d.Password==_password).FirstOrDefault();
+        }
+    }
 }

@@ -2,6 +2,7 @@
 using ESCOM_merce.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.FileProviders;
 
 namespace ESCOM_merce.Controllers
 {
@@ -9,22 +10,22 @@ namespace ESCOM_merce.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        public UsuariosApi _usuarioApi;
+        public UsuariosApi _usuarioService;
         public UsuariosController(UsuariosApi usuarioApi)
         {
-            _usuarioApi = usuarioApi;
+            _usuarioService = usuarioApi;
         }
 
         [HttpGet]
         public ActionResult<List<Usuario>> Get()
         {
-            return _usuarioApi.Get();
+            return _usuarioService.Get();
         }
 
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<Usuario>> GetId(string id)
         {
-            var usuario= await _usuarioApi.GetId(id);
+            var usuario=  _usuarioService.GetId(id);
             if(usuario == null)
             {
                 return NotFound();
@@ -36,10 +37,39 @@ namespace ESCOM_merce.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Usuario newUsuario)
         {
-            await _usuarioApi.Create(newUsuario);
+            await _usuarioService.Create(newUsuario);
 
             return CreatedAtAction(nameof(Get), new { id = newUsuario.Id }, newUsuario);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(string id, Usuario usuarioUpdate)
+        {
+            var usuario =  _usuarioService.GetId(id);
+
+            if(usuario is null)
+            {
+                return NotFound();
+            }
+
+            usuarioUpdate.Id = usuario.Id;
+            await _usuarioService.Update(id, usuarioUpdate);
+
+            return NoContent();
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var usuario =  _usuarioService.GetId(id);
+            if(usuario is null)
+            {
+                return NotFound();
+            }
+            await _usuarioService.Delete(id);
+            return NoContent();
+        }
+
+        
     }
     
 }

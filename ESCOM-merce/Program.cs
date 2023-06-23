@@ -1,5 +1,6 @@
 using ESCOM_merce.Models;
 using ESCOM_merce.Services;
+using Microsoft.AspNetCore.Authentication.Cookies; ;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,12 @@ builder.Services.Configure<ProductosSettings>(
 builder.Services.AddSingleton<UsuariosApi>();
 builder.Services.AddSingleton<ProductosApi>();
 builder.Services.AddSingleton<VentasApi>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
+{
+    option.LoginPath = "/VUsuario/Login";
+    option.ExpireTimeSpan=TimeSpan.FromMinutes(30);
+    option.AccessDeniedPath = "/Home/Privacy";
+});
 
 
 
@@ -37,8 +44,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",

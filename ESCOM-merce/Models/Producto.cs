@@ -9,6 +9,9 @@ namespace ESCOM_merce.Models
         [BsonElement("nombre")]
         public string Nombre { get; set; }
 
+        [BsonElement("categoria")]
+        public string Categoria { get; set; }
+
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         [BsonElement("_idVendedor")]
         public string IdVendedor { get; set; }

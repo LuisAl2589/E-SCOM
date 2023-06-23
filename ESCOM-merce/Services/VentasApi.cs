@@ -22,5 +22,25 @@ namespace ESCOM_merce.Services
         {
             return _ventasCollection.Find(d => true).ToList();
         }
+
+        public Task<Ventas> GetId(string id)
+        {
+            return _ventasCollection.Find(d => d.Id == id).FirstOrDefaultAsync();
+        }
+        public Task Create(Ventas ventas)
+        {
+            return _ventasCollection.InsertOneAsync(ventas);
+
+        }
+
+        public Task Update(string id, Ventas ventas)
+        {
+            return _ventasCollection.ReplaceOneAsync(d => d.Id == id, ventas);
+        }
+
+        public Task Delete(string id)
+        {
+            return _ventasCollection.DeleteOneAsync(d => d.Id == id);
+        }
     }
 }

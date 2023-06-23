@@ -9,16 +9,63 @@ namespace ESCOM_merce.Controllers
     [ApiController]
     public class ProductosController : ControllerBase
     {
-        public ProductosApi _productoApi;
+        public ProductosApi _productoService;
         public ProductosController(ProductosApi productoApi)
         {
-            _productoApi = productoApi;
+            _productoService = productoApi;
         }
 
         [HttpGet]
         public ActionResult<List<Producto>> Get()
         {
-            return _productoApi.Get();
+            return _productoService.Get();
+        }
+
+        [HttpGet("{id:length(24)}")]
+        public async Task<ActionResult<Producto>> GetId(string id)
+        {
+            var producto = await _productoService.GetId(id);
+            if (producto == null)
+            {
+                return NotFound();
+            }
+
+            return producto;
+        }
+
+        [HttpPost]
+        public  IActionResult Post(Producto newProducto)
+        {
+             _productoService.Create(newProducto);
+
+            return CreatedAtAction(nameof(Get), new { id = newProducto.Id }, newProducto);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(string id, Producto productoUpdate)
+        {
+            var producto = await _productoService.GetId(id);
+
+            if (producto is null)
+            {
+                return NotFound();
+            }
+
+            productoUpdate.Id = producto.Id;
+            await _productoService.Update(id, productoUpdate);
+
+            return NoContent();
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var producto = await _productoService.GetId(id);
+            if (producto is null)
+            {
+                return NotFound();
+            }
+            await _productoService.Delete(id);
+            return NoContent();
         }
     }
 }

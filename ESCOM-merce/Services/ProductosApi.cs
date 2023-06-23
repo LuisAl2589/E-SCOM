@@ -23,5 +23,30 @@ namespace ESCOM_merce.Services
         {
             return _productosCollection.Find(d => true).ToList();
         }
+
+        public List<Producto> GetIdVendedor(string idVendedor)
+        {
+            return _productosCollection.Find(d => d.IdVendedor==idVendedor).ToList();
+        }
+
+        public Task<Producto> GetId(string id)
+        {
+            return _productosCollection.Find(d => d.Id == id).FirstOrDefaultAsync();
+        }
+        public Task Create(Producto producto)
+        {
+            return _productosCollection.InsertOneAsync(producto);
+
+        }
+
+        public Task Update(string id, Producto producto)
+        {
+            return _productosCollection.ReplaceOneAsync(d => d.Id == id, producto);
+        }
+
+        public Task Delete(string id)
+        {
+            return _productosCollection.DeleteOneAsync(d => d.Id == id);
+        }
     }
 }

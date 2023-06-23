@@ -15,6 +15,9 @@ namespace ESCOM_merce.Models
         [BsonElement("correo")]
 
         public string Correo { get; set; }
+        [BsonElement("telefono")]
+
+        public string Telefono { get; set; }
         [BsonElement("nickname")]
 
         public string Nickname { get; set; }
