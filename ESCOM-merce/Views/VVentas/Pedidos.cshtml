@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "Pedidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var nPedido = 0;
+    var whats = "";
+
+}
+
+<br />
+<br />
+<br />
+@foreach (var pedidoUsuario in Model)
+{
+    nPedido++;
+
+    <div class="card overflow-auto" style="width:90%">
+        <div class="card-body pb-0">
+
+
+            <h5 class="card-title">Tu Pedido #@nPedido</h5>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Vendedor</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Fecha Entrega</th>
+                        <th scope="col">Hora Entrega</th>
+
+                        <th scope="col">Lugar</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Estado</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (true)
+                    {
+                        whats = "https://wa.me/521" + pedidoUsuario.Usuario.Telefono;
+                    }
+                        <tr>
+                            <th scope="row"><a href="#">@pedidoUsuario.Usuario.Nombre</a></th>
+                        <td>
+                            <a aria-label="Chat on WhatsApp" href="@whats">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                                    <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                                </svg>
+                                <a /> @pedidoUsuario.Usuario.Telefono
+                        </td>
+                        <td>@pedidoUsuario.Venta.FechaEntrega.ToString("dd/MM/yyyy")</td>
+                        <td>@pedidoUsuario.Venta.FechaEntrega.ToString("HH:mm:ss")</td>
+
+                        <td class="fw-bold"><a href="@pedidoUsuario.Venta.LugarVenta.Link"><h6>@pedidoUsuario.Venta.LugarVenta.Nombre</h6></a><p>@pedidoUsuario.Venta.LugarVenta.Descripcion</p></td>
+                        <td>$@pedidoUsuario.Venta.Total</td>
+                        @if (@pedidoUsuario.Venta.Completado)
+                        {
+                            <td><button type="button" class="btn btn-outline-success" disabled>Entregado</button></td>
+                        }
+                        else
+                        {
+
+                            <td><button type="button" class="btn btn-outline-warning" disabled>Pendiente</button></td>
+                        }
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+    <br />
+    
+}
+
+

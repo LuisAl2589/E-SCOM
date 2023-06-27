@@ -1,8 +1,307 @@
-﻿@{
+﻿@using ESCOM_merce.Models;
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Authentication.Cookies;
+@using Microsoft.AspNetCore.Authentication;
+
+@{
     ViewData["Title"] = "Home Page";
+    var m1 = Model;
+    var m2 = Model;
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<section>
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active c-item">
+                <img src="~/img/escom-1.jpeg" class="d-block w-100 c-img" alt="Slide 1">
+                <div class="carousel-caption ">
+                    <h2 class=" m-1 text-capitalize">Mejor Calificados</h2>
+                    <p class="mt-5 fs-3 text-uppercase">Consulta los productos con mejor calificación</p>
+                    <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Ver mas</button>
+                </div>
+            </div>
+            <div class="carousel-item c-item">
+                <img src="~/img/gomitas.jpg" class="d-block w-100 c-img" alt="Slide 2">
+                <div class="m-1 carousel-caption ">
+                    <h2 class="fw-bolder text-capitalize">Más Vendidos</h2>
+                    <p class="mt-5 fs-3 text-uppercase">Consulta los productos más vendidos</p>
+                    <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Ver mas</button>
+                </div>
+            </div>
+            <div class="carousel-item c-item">
+                <img src="~/img/stickers.jpg" class="d-block w-100 c-img" alt="Slide 3">
+                <div class=" m-1 carousel-caption ">
+                    <h2 class="fw-bolder text-capitalize">Recien añadidos</h2>
+                    <p class="mt-5 fs-3 text-uppercase">Consulta los articulos de novedad</p>
+                    <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Ver mas</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+
+<main>
+    <section class="CarPr">
+        <div class=" bg-dark text-info text-center p-1">
+            <h3>Categoria <a href="../html/Alimentos.html" class="categorialk text-secondary"> Alimentos</a></h3>
+        </div>
+        <div id="CarouselAl" class="carousel slide bg-dark-subtle" data-ride="carousel">
+            <div class="carousel-inner ">
+                <div class="carousel-item active">
+                    <div class="row p-3">
+                        @foreach(var producto in m1){
+                            if(producto.Producto.Estado){
+                            if(producto.Producto.Categoria == "Alimentos"){
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img class="card-img-top" src="~/img/Productos/@producto.Producto.Categoria/@producto.Producto.Imagen" alt="Imagen 1">
+                                <div class="card-body">
+                                        <h5 class="card-title">@producto.Producto.Nombre</h5>
+                                        <p class="card-text" id="User_Name">@producto.Usuario.Nombre</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                    data-bs-toggle="modal" data-bs-target="#@producto.Producto.Nombre.Trim()">
+                                                Ver Post
+                                            </button>
+                                        </div>
+                                        <small class="text-body-secondary"></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                            }
+                        }
+                    </div>
+                </div>
+
+                <!-- Agrega más elementos div con la clase carousel-item para más slides -->
+            </div>
+            <a class="carousel-control-next" href="#CarouselAl" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="CarPr">
+        <div class=" bg-dark text-info text-center p-1">
+            <h3>Categoria <a href="../html/Productos.html" class="categorialk text-secondary">Productos</a></h3>
+        </div>
+        <div id="CarouselPro" class="carousel slide bg-dark-subtle" data-ride="carousel">
+            <div class="carousel-inner ">
+                <div class="carousel-item active">
+                    <div class="row p-3">
+
+                        @foreach (var producto in m1)
+                        {
+                            if (producto.Producto.Estado)
+                            {
+                                if (producto.Producto.Categoria == "Productos")
+                                {
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <div class="card">
+                                            <img class="card-img-top" src="~/img/Productos/@producto.Producto.Categoria/@producto.Producto.Imagen" alt="Imagen 1">
+                                            <div class="card-body">
+                                                <h5 class="card-title">@producto.Producto.Nombre</h5>
+                                                <p class="card-text" id="User_Name">@producto.Usuario.Nombre</p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="btn-group mx-auto">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                                data-bs-toggle="modal" data-bs-target="#@producto.Producto.Nombre.Trim()">
+                                                            Ver Post
+                                                        </button>
+                                                    </div>
+                                                    <small class="text-body-secondary">Actualizacion del Post</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                
+
+                <!-- Agrega más elementos div con la clase carousel-item para más slides -->
+            </div>
+            <a class="carousel-control-next" href="#CarouselPro" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </section>
+
+    
+</main>
+
+<!--
+  ****************************************************************************************************************
+  ****************************************************************************************************************
+  ****************************************************************************************************************
+  ****************************************************************************************************************
+-->
+<!-- Modal P1CA-->
+@{
+    var whats = "";
+}
+@foreach(var producto in m2){
+    if (producto.Producto.Estado)
+    {
+        <div class="modal fade" id="@producto.Producto.Nombre.Trim()" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <h1 class="modal-title fs-5 " id="exampleModalLabel">@producto.Producto.Nombre</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-img align-content-center justify-content-center">
+                        <img src="~/img/Productos/@producto.Producto.Categoria/@producto.Producto.Imagen" class="card-img " alt="Cinque Terre">
+                </div>
+                <div class="card-body ">
+                    <h4>Detalles del articulo</h4>
+                    <p class="descp">
+                            @producto.Producto.Descripcion
+                    </p>
+                    <hr>
+                    <div class="container">
+                            <div class="row" style="width:20rem;">
+                                <div class="col-md-6">
+                                    @if (true)
+                                    {
+                                        whats = "https://wa.me/521" + producto.Usuario.Telefono;
+                                    }
+                                    <h5 id="User_Name">Vendedor: </h5>@producto.Usuario.Nombre
+                                    <a aria-label="Chat on WhatsApp" href="@whats">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                                            <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                                        </svg>
+                                        <a />
+                                        <p>@producto.Usuario.Telefono</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Costo: </h5>$@producto.Producto.Costo
+                                    <h5>Stock: </h5>@producto.Producto.Stock
+                                        
+                                </div>
+                            </div>
+                    </div>
+                    
+                   
+                        
+                    
+                    
+                </div>
+            </div>
+
+            <div class="modal-footer display-flex">
+                        @if (User.IsInRole("Cliente"))
+                        {
+                            <form asp-controller="VCarrito" asp-action="Agregar" method="post">
+                                <input type="hidden" name="_idProducto" value="@producto.Producto.Id">
+                                <input type="hidden" name="_idVendedor" value="@producto.Usuario.Id">
+                                <input type="hidden" name="_idCliente" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+
+                                <input type="number" name="cantidad" max="@producto.Producto.Stock" min="1" value="1">
+
+
+                                <button id="agregar" type="submit" class="btn btn-sm btn-outline-success">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-plus" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M17 17h-11v-14h-2" />
+                                        <path d="M6 5l6 .429m7.138 6.573l-.143 1h-13" />
+                                        <path d="M15 6h6m-3 -3v6" />
+                                    </svg>
+                                    Agregar
+                                </button>
+                            </form>
+                        }
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
 </div>
+}
+}
+
+<!--
+  ****************************************************************************************************************
+  ****************************************************************************************************************
+  ****************************************************************************************************************
+  ****************************************************************************************************************
+-->
+<!-- Modal P1CP-->
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            $("#formulario").submit(function () {
+                alert("Si jala");
+
+                // Obtiene los valores de los campos de entrada
+               /* var idProducto = $("#idProducto").val();
+                var idVendedor = $("#idVendedor").val();
+                var unidades = $("#unidades").val();
+                var idCliente = $("#idCliente").val();
+                */
+
+               var data = $(this).serialize();
+
+
+                // Crea un objeto con los datos del usuario
+                var carrito = {
+                    _idCliente: idCliente,
+                    _idVendedor: idVendedor,
+                    _idProducto: idProducto,
+                    cantidad:unidades
+                };
+
+                // Envía una solicitud AJAX al controlador
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Agregar","VCarrito")',
+                    data: data,
+                    success: function (response) {
+
+                        if (response.success) {
+                            // Inicio de sesión exitoso
+                            alert("Se agrego al carrito");
+                            // Realiza redirección o muestra otro contenido
+                        } else {
+                            // Credenciales inválidas
+                            alert("NO se agrego al carrito");
+                        }
+                    },
+                    error: function () {
+                        // Error en la solicitud AJAX
+                        alert("Ocurrió un error en la solicitud.");
+                    }
+                });
+            });
+        });
+    </script>
+}
+

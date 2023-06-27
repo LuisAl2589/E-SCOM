@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,35 +7,94 @@
     <title>@ViewData["Title"] - ESCOM_merce</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css2/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css2/bootstrap-5.3.0-alpha3-dist/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="~/ESCOM_merce.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ESCOM_merce</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">E-SCOM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menú</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    @*
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-info" type="submit">Buscar</button>
+                    </form>
+                    *@
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Pagina Principal</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categorias
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-dark">
+                                    <li><a class="dropdown-item" asp-controller="VProducto" asp-action="Alimentos">Alimentos</a></li>
+                                    <li><a class="dropdown-item" asp-controller="VProducto" asp-action="Productos">Productos</a></li>
+                                    <li><a class="dropdown-item" asp-controller="VProducto" asp-action="Servicios">Servicios</a></li>
+                                </ul>
+                            </li>
+                            
+                            
+                            @if (User.IsInRole("Cliente"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VCarrito" asp-action="VerCarrito">Ver Carrito</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VVentas" asp-action="Pedidos">Mis Pedidos</a>
+                                </li>
+                                
+                            }
+                            @if (User.IsInRole("Vendedor"))
+                            {
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VVendedor" asp-action="ProductosVendedor">Mis productos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VVentas" asp-action="PedidosClientes">Pedidos Clientes</a>
+                                </li>
+                            }
+                            
+                            @if (User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
+                            {
+                           
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VVendedor" asp-action="Perfil">Perfil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VUsuario" asp-action="Salir">Cerrar sesion</a>
+                                </li>
+                            }else{
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VUsuario" asp-action="Login">Iniciar sesion</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+        
             @RenderBody()
-        </main>
-    </div>
+
 
     <footer class="border-top footer text-muted">
         <div class="container">

@@ -1,0 +1,97 @@
+﻿@using ESCOM_merce.Models;
+
+@{
+    ViewData["Title"] = "ProductosVendedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+
+<div class="container">
+    <h4 class="modal-title">Productos Registrados</h4>
+
+    <div class="row">
+        <div class="col col-md-12">
+            <a asp-controller="VVendedor" asp-action="RegistroProducto">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-rounded-plus" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M9 12h6" />
+                    <path d="M12 9v6" />
+                    <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
+                </svg>
+                <p class="modal-title">Agregar Articulo</p>
+            </a>
+
+        </div>
+    </div>
+    <div class="row">
+        <table class="table col-12 container text-center">
+
+            <thead>
+                <tr>
+                    <th scope="col" class="col-sm-1">Num.Post</th>
+                    <th scope="col" class="col-sm-1">Nombre</th>
+                    <th scope="col" class="col-sm-1">Costo</th>
+                    <th scope="col" class="col-sm-1">Stock</th>
+                    <th scope="col" class="col-sm-2">Categoria</th>
+                    <th scope="col" class="col-sm-2">Opciones</th>
+
+                    <th scope="col" class="col-sm-3">Estatus</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var cont = 0;
+                }
+                @foreach (var producto in Model)
+                {
+                    cont++;
+
+                    <tr>
+                        <th>@cont</th>
+                        <td>@producto.Nombre</td>
+                        <td>$@producto.Costo</td>
+                        <td>@producto.Stock</td>
+                        <td>@producto.Categoria</td>
+
+
+                        <td class="btn-group justify-content-between align-items-center">
+                            <button type="button" class="btn mx-2 btn-outline-success " id="ver">Ver</button>
+                            <form asp-controller="VVendedor" asp-action="EditarProducto" method="post" )">
+                                <input type="hidden" name="_idProducto" value="@producto.Id">
+
+                            <button type="submit" class="btn btn-primary" id="edit">Editar</button>
+                            </form>
+                            <form asp-controller="VProducto" asp-action="EliminarProducto" method="post" onsubmit="return confirm('¿Estás seguro?')">
+                                <input type="hidden" name="_idProducto" value="@producto.Id">
+                                <button type="submit" class="btn btn-danger" id="borra">Borrar</button>
+                            </form>
+                            
+                        </td>
+                        <td>
+                            <div class="container d-flex justify-content-center">
+                                <label class="text-danger mt-1">Inactivo</label>
+                                @if (producto.Estado)
+                                {
+                                    <input type="range" class="form-range" id="slider" min="0" max="1" step="1" value="1" disabled>
+                                }
+                                else
+                                {
+
+                                    <input type="range" class="form-range" id="slider" min="0" max="1" step="1" value="0" disabled>
+
+                                }
+                                <label class="text-success mt-1">Activo</label>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
