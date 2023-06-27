@@ -1,8 +1,9 @@
-﻿@model Producto
+﻿@model Usuario
 @using System.Security.Claims;
- 
+
 @{
     Layout = null;
+    var usuario = Model;
 }
 
 <!DOCTYPE html>
@@ -51,79 +52,79 @@
                             <div class="d-flex justify-content-center py-4">
                                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                                     <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">Nuevo Producto</span>
+                                    <span class="d-none d-lg-block">E-SCOM</span>
                                 </a>
                             </div><!-- End Logo -->
 
-                            <div class="card mb-3">
+                            <div class="card mb-3" style="width: 30rem;">
 
                                 <div class="card-body">
 
                                     <div class="pt-4 pb-2">
-                                        <h5 class="card-title text-center pb-0 fs-4">Crea un Producto</h5>
-                                        <p class="text-center small">Ingresa los datos del producto</p>
+                                        <h5 class="card-title text-center pb-0 fs-4">Crea una Cuenta</h5>
+                                        <p class="text-center small">Ingresa tus datos personales</p>
                                     </div>
 
-                                    <form asp-controller="VProducto" asp-action="CrearProducto" method="post">
+                                    <form asp-controller="VUsuario" asp-action="Editar" method="post">
+                                        <input type="hidden" asp-for="Id" value="@usuario.Id">
+
                                         <div class="col-12">
                                             <label for="yourName" class="form-label">Nombre</label>
-                                            <input type="text" asp-for="Nombre" class="form-control" id="yourName" required>
+                                            <input type="text" asp-for="Nombre" class="form-control" id="yourName" value="@usuario.Nombre" required>
                                             <div class="invalid-feedback">Please, enter your name!</div>
                                         </div>
-                                        <div class="col-12">
-                                            <select class="form-select" asp-for="Categoria" aria-label="Categoria">
-                                                <option value="Alimentos" selected>Alimentos</option>
-                                                <option value="Productos">Productos</option>
-                                                <option value="Servicios">Servicios</option>
+                                        <br />
 
+                                        <div class="col-12">
+                                            <label for="yourName" class="form-label">Primer Apellido</label>
+                                            <input type="text" asp-for="PrimerApellido" class="form-control" id="yourName" value="@usuario.PrimerApellido" required>
+                                            <div class="invalid-feedback">Please, enter your name!</div>
+                                        </div>
+                                        <br />
+
+
+                                        <div class="col-12">
+                                            <label for="yourEmail" class="form-label">Correo</label>
+                                            <input type="email" asp-for="Correo" class="form-control" id="yourEmail" value="@usuario.Correo" required>
+                                            <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                                        </div>
+                                        <br />
+
+                                        <div class="col-12">
+                                            <label for="yourPassword" class="form-label">Telefono</label>
+                                            <input type="text" asp-for="Telefono" class="form-control" id="yourPassword" value="@usuario.Telefono" required>
+                                            <div class="invalid-feedback">Please enter your password!</div>
+                                        </div>
+                                        <br />
+
+                                        <div class="col-12">
+                                            <label for="yourUsername" class="form-label">Username</label>
+                                            <div class="input-group has-validation">
+
+                                                <input type="text" asp-for="Nickname" class="form-control" id="yourUsername" value="@usuario.Nickname" required>
+                                                <div class="invalid-feedback">Please choose a username.</div>
+                                            </div>
+                                        </div>
+                                        <br />
+
+
+                                        <div class="col-12">
+                                            <label for="yourPassword" class="form-label">Contraseña</label>
+                                            <input type="text" asp-for="Password" class="form-control" id="yourPassword" value="@usuario.Password" required>
+                                            <div class="invalid-feedback">Please enter your password!</div>
+                                        </div>
+                                        <br />
+
+                                        <div class="col-12">
+                                            <select class="form-select" asp-for="TipoUsuario" aria-label="Tipo de Usuario">
+                                                <option value="Cliente" selected>Cliente</option>
+                                                <option value="Vendedor">Vendedor</option>
 
                                             </select>
                                         </div>
-
-
-                                        <input type="hidden" asp-for="IdVendedor" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" required>
-
-                                        <div class="col-12">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                            <div class="input-group has-validation">
-
-                                                <textarea class="form-control"asp-for="Descripcion" rows="3"></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label for="yourPassword" class="form-label">Costo</label>
-                                            <input type="text" asp-for="Costo" class="form-control" required>
-                                            <div class="invalid-feedback">Please enter your password!</div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label for="yourPassword" class="form-label">Stock</label>
-                                            <input type="number" min="0" asp-for="Stock" class="form-control" required>
-                                            <div class="invalid-feedback">Please enter your password!</div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" asp-for="Estado" id="flexRadioDefault1" value="true" checked>
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Publicar
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" asp-for="Estado" id="flexRadioDefault2" value="false" >
-                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                    No Publicar
-                                                </label>
-                                            </div>
-
-                                        </div>
-                                        <div class="mb-12">
-                                            <label for="formFile" class="form-label">Imagen del Producto</label>
-                                            <input class="form-control" type="file" asp-for="Imagen">
-                                        </div>
                                         <br />
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100" type="submit">Crear Producto</button>
+                                            <button class="btn btn-primary w-100" type="submit">Editar Cuenta</button>
                                         </div>
                                         <!--
                                         <div class="col-12">
@@ -135,7 +136,6 @@
                                 </div>
                             </div>
 
-                          
 
                         </div>
                     </div>

@@ -35,7 +35,7 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../html/Index.html">Pagina Principal</a>
+                                <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Pagina Principal</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,18 +47,35 @@
                                     <li><a class="dropdown-item" asp-controller="VProducto" asp-action="Servicios">Servicios</a></li>
                                 </ul>
                             </li>
-                            @if (User.IsInRole("Vendedor"))
+                            
+                            
+                            @if (User.IsInRole("Cliente"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-controller="VVendedor" asp-action="Perfil">Perfil</a>
+                                    <a class="nav-link" asp-controller="VCarrito" asp-action="VerCarrito">Ver Carrito</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VVentas" asp-action="Pedidos">Mis Pedidos</a>
+                                </li>
+                                
+                            }
+                            @if (User.IsInRole("Vendedor"))
+                            {
+                                
                                 <li class="nav-item">
                                     <a class="nav-link" asp-controller="VVendedor" asp-action="ProductosVendedor">Mis productos</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VVentas" asp-action="PedidosClientes">Pedidos Clientes</a>
+                                </li>
                             }
-
+                            
                             @if (User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
                             {
+                           
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="VVendedor" asp-action="Perfil">Perfil</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" asp-controller="VUsuario" asp-action="Salir">Cerrar sesion</a>
                                 </li>

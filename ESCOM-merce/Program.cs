@@ -11,16 +11,18 @@ builder.Services.Configure<BaseSettings>(
     builder.Configuration.GetSection("BaseSettings"));
 builder.Services.Configure<ProductosSettings>(
     builder.Configuration.GetSection("ProductosSettings"));
+
 builder.Services.AddSingleton<UsuariosApi>();
 builder.Services.AddSingleton<ProductosApi>();
 builder.Services.AddSingleton<VentasApi>();
+builder.Services.AddSingleton<CarritoApi>();
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
 {
     option.LoginPath = "/VUsuario/Login";
     option.ExpireTimeSpan=TimeSpan.FromMinutes(30);
     option.AccessDeniedPath = "/Home/Privacy";
 });
-
 
 
 

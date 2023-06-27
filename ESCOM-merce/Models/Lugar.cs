@@ -7,11 +7,11 @@ namespace ESCOM_merce.Models
         [BsonElement("nombre")]
 
         public string Nombre { get; set; }
-        [BsonElement("latitud")]
+        [BsonElement("descripcion")]
 
-        public string Latitud { get; set; }
-        [BsonElement("longitud")]
+        public string Descripcion { get; set; }
+        [BsonElement("link")]
 
-        public string Longitud { get; set;}
+        public string Link { get; set;}
     }
 }

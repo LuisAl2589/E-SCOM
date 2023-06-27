@@ -1,0 +1,68 @@
+﻿@using ESCOM_merce.Models;
+
+@{
+    ViewData["Title"] = "VerCarrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var subTotal = (decimal)0;
+    var Total = (decimal)0;
+    var nCarrito = 0;
+}
+<br /><br /><br />
+    @foreach (var carroProducto in Model)
+        {
+    nCarrito++;
+
+    <div class="card overflow-auto" style="width:90%">
+    <div class="card-body pb-0">
+
+        
+            <h5 class="card-title">Tu Carrito #@nCarrito</h5>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Agregado</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var productoCantidad in carroProducto.Productos)
+                    {
+                        @if (true)
+                        {
+
+                            subTotal = productoCantidad.Producto.Costo * productoCantidad.Cantidad;
+                            Total = Total + subTotal;
+                        }
+                        <tr>
+                            <th scope="row"><a href="#"><img src="~/img/Productos/@productoCantidad.Producto.Categoria/@productoCantidad.Producto.Imagen" alt="" style="width:5rem; height:5rem;"></a></th>
+                            <td><a href="#" class="text-primary fw-bold">@productoCantidad.Producto.Nombre</a></td>
+                            <td>$@productoCantidad.Producto.Costo</td>
+                            <td class="fw-bold"><input type="number" value="@productoCantidad.Cantidad" max="@productoCantidad.Producto.Stock" min="1"></td>
+                            <td>$@subTotal</td>
+                        </tr>
+                    }
+                    <tr class="table-secondary">
+                        <td colspan="3"><h6>Total:</h6></td>
+                        
+                        <td colspan="1">$@Total</td>
+
+                        <form asp-controller="VVentas" asp-action="RegistroVenta" method="post">
+                            <input type="hidden" name="_idCarrito" value="@carroProducto.Carro.Id">
+                        <td colspan="1"><button type="submit" class="btn btn-success">Realizar Pedido</button></td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+        
+
+    </div>
+</div>
+<br />
+    Total=(decimal)0;
+    }
+
+
+

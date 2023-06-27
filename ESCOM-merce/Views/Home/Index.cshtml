@@ -1,4 +1,7 @@
 ﻿@using ESCOM_merce.Models;
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Authentication.Cookies;
+@using Microsoft.AspNetCore.Authentication;
 
 @{
     ViewData["Title"] = "Home Page";
@@ -181,8 +184,8 @@
                     </p>
                     <hr>
                     <div class="container">
-                            <div class="row">
-                                <div class="col col-sm-6">
+                            <div class="row" style="width:20rem;">
+                                <div class="col-md-6">
                                     @if (true)
                                     {
                                         whats = "https://wa.me/521" + producto.Usuario.Telefono;
@@ -197,9 +200,10 @@
                                         <a />
                                         <p>@producto.Usuario.Telefono</p>
                                 </div>
-                                <div class="col col-sm-6">
+                                <div class="col-md-6">
                                     <h5>Costo: </h5>$@producto.Producto.Costo
                                     <h5>Stock: </h5>@producto.Producto.Stock
+                                        
                                 </div>
                             </div>
                     </div>
@@ -211,8 +215,31 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <div class="modal-footer display-flex">
+                        @if (User.IsInRole("Cliente"))
+                        {
+                            <form asp-controller="VCarrito" asp-action="Agregar" method="post">
+                                <input type="hidden" name="_idProducto" value="@producto.Producto.Id">
+                                <input type="hidden" name="_idVendedor" value="@producto.Usuario.Id">
+                                <input type="hidden" name="_idCliente" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+
+                                <input type="number" name="cantidad" max="@producto.Producto.Stock" min="1" value="1">
+
+
+                                <button id="agregar" type="submit" class="btn btn-sm btn-outline-success">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-plus" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M17 17h-11v-14h-2" />
+                                        <path d="M6 5l6 .429m7.138 6.573l-.143 1h-13" />
+                                        <path d="M15 6h6m-3 -3v6" />
+                                    </svg>
+                                    Agregar
+                                </button>
+                            </form>
+                        }
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -227,5 +254,54 @@
   ****************************************************************************************************************
 -->
 <!-- Modal P1CP-->
+@section scripts{
+    <script>
+        $(document).ready(function () {
 
+            $("#formulario").submit(function () {
+                alert("Si jala");
+
+                // Obtiene los valores de los campos de entrada
+               /* var idProducto = $("#idProducto").val();
+                var idVendedor = $("#idVendedor").val();
+                var unidades = $("#unidades").val();
+                var idCliente = $("#idCliente").val();
+                */
+
+               var data = $(this).serialize();
+
+
+                // Crea un objeto con los datos del usuario
+                var carrito = {
+                    _idCliente: idCliente,
+                    _idVendedor: idVendedor,
+                    _idProducto: idProducto,
+                    cantidad:unidades
+                };
+
+                // Envía una solicitud AJAX al controlador
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Agregar","VCarrito")',
+                    data: data,
+                    success: function (response) {
+
+                        if (response.success) {
+                            // Inicio de sesión exitoso
+                            alert("Se agrego al carrito");
+                            // Realiza redirección o muestra otro contenido
+                        } else {
+                            // Credenciales inválidas
+                            alert("NO se agrego al carrito");
+                        }
+                    },
+                    error: function () {
+                        // Error en la solicitud AJAX
+                        alert("Ocurrió un error en la solicitud.");
+                    }
+                });
+            });
+        });
+    </script>
+}
 

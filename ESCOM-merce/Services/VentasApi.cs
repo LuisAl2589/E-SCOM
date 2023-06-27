@@ -27,6 +27,15 @@ namespace ESCOM_merce.Services
         {
             return _ventasCollection.Find(d => d.Id == id).FirstOrDefaultAsync();
         }
+
+        public List<Ventas> GetIdCliente(string idCliente)
+        {
+            return _ventasCollection.Find(d => d.IdCliente == idCliente).ToList();
+        }
+        public List<Ventas> GetIdVendedor(string idVendedor)
+        {
+            return _ventasCollection.Find(d => d.IdVendedor == idVendedor).ToList();
+        }
         public Task Create(Ventas ventas)
         {
             return _ventasCollection.InsertOneAsync(ventas);

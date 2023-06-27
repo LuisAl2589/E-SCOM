@@ -3,6 +3,8 @@ using ESCOM_merce.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
+using MongoDB.Bson;
+using System;
 
 namespace ESCOM_merce.Controllers
 {
@@ -69,7 +71,12 @@ namespace ESCOM_merce.Controllers
             return NoContent();
         }
 
-        
+        [HttpGet]
+        public JsonResult ValidarUsuario(string _correo, string _password)
+        {
+            return new JsonResult(_usuarioService.ValidarUsuario(_correo, _password));   
+        }
+
     }
     
 }

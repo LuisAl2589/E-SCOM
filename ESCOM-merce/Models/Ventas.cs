@@ -13,13 +13,15 @@ namespace ESCOM_merce.Models
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         [BsonElement("_idCliente")]
         public string IdCliente { get; set; }
-        [BsonElement("detalle")]
-        public DetalleVenta[] Detalle{ get; set; }
+        [BsonElement("productoCantidad")]
+        public List<ProductoCantidad> Detalle{ get; set; }
         [BsonElement("total")]
         public decimal Total { get; set; }
         [BsonRepresentation(MongoDB.Bson.BsonType.DateTime)]
         [BsonElement("fechaPedido")]
-        public DateTimeOffset Fecha { get; set; }
+        public DateTime FechaPedido { get; set; }
+        [BsonElement("fechaEntrega")]
+        public DateTime FechaEntrega { get; set; }
         [BsonElement("completado")]
         public Boolean Completado { get; set; }
         [BsonElement("lugar")]

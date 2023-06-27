@@ -1,0 +1,169 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="~/css2/style.css" asp-append-version="true" />
+
+
+    <!-- =======================================================
+    * Template Name: NiceAdmin
+    * Updated: Mar 09 2023 with Bootstrap v5.2.3
+    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <main>
+        <div class="container">
+
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                            <div class="d-flex justify-content-center py-4">
+                                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                                    <img src="assets/img/logo.png" alt="">
+                                    <span class="d-none d-lg-block">E-SCOM</span>
+                                </a>
+                            </div><!-- End Logo -->
+
+                            <div class="card mb-3" style="width: 25rem;">
+
+                                <div class="card-body">
+
+                                    <div class="pt-4 pb-2">
+                                        <h5 class="card-title text-center pb-0 fs-4">Ingresa los datos del punto de entrega</h5>
+
+                                    </div>
+
+                                    <form asp-controller="VVentas" asp-action="RegistrarVenta" method="post">
+
+                                        <div class="col-12">
+                                            <label for="yourUsername" class="form-label">Lugar</label>
+                                            <div class="input-group has-validation">
+                                                <p>
+                                                    <a href="#" class="btn btn-primary my-2"
+                                                       data-bs-toggle="modal" data-bs-target="#ModalEscomap">Ver mapa de la escuela</a>
+                                                </p>
+
+                                                <select class="form-select" name="lugar" aria-label="Lugar de ESCOM">
+                                                    <option value="Letras" selected>Letras</option>
+                                                    <option value="Palapas IA">Palapas IA</option>
+                                                    <option value="Palapas Gestion">Palapas Gestion</option>
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="col-12">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                                            <div class="input-group has-validation">
+
+                                                <textarea class="form-control" name="descripcion" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="col-12">
+                                            <label for="yourPassword" class="form-label">Fecha de entrega</label>
+                                            <input type="date" name="fechaEntrega" class="form-control" id="password" required>
+                                            
+                                        </div>
+                                        <br />
+                                                 <div class="col-12">
+                                            <label for="yourPassword" class="form-label">Hora de entrega</label>
+                                            <input type="time" name="horaEntrega" class="form-control" id="password" required>
+
+                                        </div>
+                                        <br />
+                                       
+
+
+
+                                        <!--
+                                          <div class="col-12">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                                          </div>
+                                        </div>
+                                        -->
+                                        <div class="col-12">
+                                            <input type="hidden" name="_idCarrito" value="@Model.Id" />
+                                            <button class="btn btn-success w-100" type="submit">Confirmar Pedido</button>
+                                        </div>
+                                        <br />
+
+                                        
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main><!-- End #main -->
+    <!-- Vendor JS Files -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModalEscomap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mapa de la escom</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="../img/escom-mapa.png" alt="" class="escomap card-img ">
+                    <p>../OwO/..</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

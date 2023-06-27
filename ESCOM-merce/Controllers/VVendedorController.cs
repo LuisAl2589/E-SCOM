@@ -59,5 +59,15 @@ namespace ESCOM_merce.Controllers
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
+        [HttpPost]
+        public IActionResult VEditar(string _idUsuario)
+        {
+            var usuario = _usuarioService.GetId(_idUsuario);
+            if (usuario == null)
+            {
+                return RedirectToAction("Perfil", "VVendedor");
+            }
+            return View(usuario);
+        }
     }
 }
