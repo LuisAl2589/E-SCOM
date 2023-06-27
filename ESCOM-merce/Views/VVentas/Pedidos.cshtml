@@ -4,8 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var nPedido = 0;
     var whats = "";
-
+    var subtotal = (decimal)0;
 }
+
 
 <br />
 <br />
@@ -19,8 +20,41 @@
 
 
             <h5 class="card-title">Tu Pedido #@nPedido</h5>
-            <table class="table table-dark table-hover">
-                <thead>
+            <h6 class="card-title">Ddetalles Pedido</h6>
+
+            <table class="table table-hover">
+                <thead class="table table-dark">
+                    <tr>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Costo</th>
+                        <th scope="col">Cantidad</th>
+
+                        <th scope="col">Subtotal</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var detalle in pedidoUsuario.Venta.Detalle)
+                    {
+                        subtotal = detalle.Producto.Costo * detalle.Cantidad;
+                        <tr>
+                            <td><img src="~/img/Productos/@detalle.Producto.Categoria/@detalle.Producto.Imagen" class="card-img" style="width:5rem; height:5rem;" /></td>
+                            <td>@detalle.Producto.Nombre</td>
+                            <td>$@detalle.Producto.Costo</td>
+                            <td>@detalle.Cantidad</td>
+                            <td>$@subtotal</td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+            <table class="table table-hover">
+                <thead class="table table-dark">
                     <tr>
                         <th scope="col">Vendedor</th>
                         <th scope="col">Telefono</th>
@@ -38,8 +72,8 @@
                     {
                         whats = "https://wa.me/521" + pedidoUsuario.Usuario.Telefono;
                     }
-                        <tr>
-                            <th scope="row"><a href="#">@pedidoUsuario.Usuario.Nombre</a></th>
+                    <tr>
+                        <th scope="row"><a href="#">@pedidoUsuario.Usuario.Nombre</a></th>
                         <td>
                             <a aria-label="Chat on WhatsApp" href="@whats">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -64,16 +98,17 @@
                             <td><button type="button" class="btn btn-outline-warning" disabled>Pendiente</button></td>
                         }
                     </tr>
-                    
-                    
+
+
                 </tbody>
+
             </table>
 
 
         </div>
     </div>
     <br />
-    
+
 }
 
 
